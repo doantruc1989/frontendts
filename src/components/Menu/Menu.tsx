@@ -26,7 +26,7 @@ const Menu = () => {
                 {categories.map((category => {
                     return (
                         <div className="box" key={category.id}>
-                            <Link to={category.path}>
+                            <Link to={'/category/' + category.path}>
                                 <img src={category.image} alt={category.category} />
                             </Link>
 

@@ -18,6 +18,7 @@ import Paysuccess from './pages/Payment/Paysuccess';
 import ChangePw from './pages/ChangePw/ChangePw';
 import Forgotpw from './pages/Forgotpw/Forgotpw';
 import UpdateNewPw from './pages/ChangePw/UpdateNewPw';
+import ProductDetail from './pages/Product/ProductDetail';
 const ROLES = {
   'User': 'user',
   'Admin': 'admin'
@@ -44,6 +45,7 @@ function App() {
         <Route path="/payment" element={<Payment />} />
         <Route path="/paysuccessful" element={<Paysuccess />} />
         <Route path="/product" element={<Products />} />
+        <Route path="/product/:productId" element={<ProductDetail />} />
         <Route path="/category" element={<Menu />} />
         <Route path="/category/:categoryname" element={<Category />} />
         <Route path="/blog/:blogid" element={<Blogdetail />} />

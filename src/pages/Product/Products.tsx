@@ -1,14 +1,18 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { useFetch } from './useFetch'
 import './products.css'
 import Navbar2 from '../../components/Navbar/Navbar2'
 import { useCart } from 'react-use-cart'
 import { products } from '../../other/model'
+import { Link } from 'react-router-dom'
+import Notification from '../../components/Notification/Notification'
+import NotificationContext from '../../other/NotificationContext'
 
 function Products() {
     const { loading, data } = useFetch()
     const [page, setPage] = useState(0)
     const [products, setProducts] = useState<products>([] as any)
+    const { notificationHandler } = useContext(NotificationContext);
     const { addItem } = useCart();
 
     useEffect(() => {
@@ -49,18 +53,22 @@ function Products() {
 
             <section className="products" id="products">
                 <div className="box-container">
+                    <Notification />
                     {products.map((product) => {
                         return (
 
                             <div className="box">
                                 <div className="icons">
-                                    <a className="fas fa-shopping-cart" onClick={() => addItem(product)}></a>
+                                    <a className="fas fa-shopping-cart" onClick={() => {
+                                        addItem(product)
+                                        notificationHandler({ type: 'success', message: 'Add Product successfully' });
+                                    }}></a>
                                     <a href="#" className="fas fa-heart"></a>
                                     <a href="#" className="fas fa-eye"></a>
                                 </div>
-                                <div className="image">
+                                <Link to={'/product/' + product.id} className="image">
                                     <img src={product.image} alt={product.productName} />
-                                </div>
+                                </Link>
                                 <div className="content">
                                     <h3>{product.productName}</h3>
                                     <h4>{product.content}</h4>

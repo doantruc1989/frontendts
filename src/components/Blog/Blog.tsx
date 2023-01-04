@@ -26,7 +26,7 @@ const Blog = () => {
                                 <img src={blog.image} alt={blog.title} />
                             </div>
                             <div className="content">
-                                <a href="#" className="title">{blog.title}</a>
+                                <a href={'/blog/' + blog.id} className="title">{blog.title}</a>
                                 <p>{blog.littlecontent}</p>
                                 <p>{blog.createdAt}</p>
                                 <a href={'/blog/' + blog.id} className="btn">read more</a>

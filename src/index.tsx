@@ -6,6 +6,7 @@ import App from './App';
 import { CartProvider } from "react-use-cart";
 import { AuthProvider } from './other/AuthProvider';
 import reportWebVitals from './reportWebVitals';
+import { NotificationProvider } from './other/NotificationContext';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -15,7 +16,9 @@ root.render(
     <BrowserRouter>
       <AuthProvider>
         <CartProvider>
-          <App />
+          <NotificationProvider>
+            <App />
+          </NotificationProvider>
         </CartProvider>
       </AuthProvider>
     </BrowserRouter>

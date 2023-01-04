@@ -24,7 +24,6 @@ const Blogdetail = () => {
         <>
             <Navbar2 />
             <section className="blogdetail">
-
                 <div className="blogdetail-container">
                     <h1>{blogdetail.title}</h1>
                     <img src={blogdetail.image} />

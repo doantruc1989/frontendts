@@ -24,6 +24,7 @@ export interface products {
     image: string,
     productName: string,
     price: number,
+    content: string,
 }
 
 export interface items {
